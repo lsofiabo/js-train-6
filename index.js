@@ -1,5 +1,5 @@
 //Завдання 1.Cтворіть об'єкт person за допомогою конструктора з полями name: "John",age: 25
-let person = {};
+let person = {name: "John", age: 25};
 
 console.log("Завдання 1 ====================================");
 
@@ -8,6 +8,12 @@ console.log("person", person); // Виведе {name: "John", age: 25}
 //Завдання 2. Cтворіть об'єкт personLarge який буде мати такі ж поля як person ,
 // та вкладений об'єкт address з полями  street: "123 Main St", city: "New York", country: "USA",
 let personLarge = {
+  ...person,
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    country: "USA"
+  }
   //використовуємо деструктурізацію на об'єкті person
   //створюємо об'єкт address
 };
@@ -29,6 +35,7 @@ var animal = {
 
 // Функція для створення нового об'єкта з тими ж властивостями
 function copyObject(obj) {
+  return {...obj};
   // Використовуємо синтаксис деструктурізації {...person} для створення нового об'єкта з тими ж властивостями
   // Повертаємо новий об'єкт
 }
@@ -44,6 +51,10 @@ let fruit = {
 };
 // Функція для перевірки наявності властивості в об'єкті
 function hasProperty(obj, property) {
+  if (property in obj) {
+    return 'Property ${property} exists';
+  }
+  return 'Property ${property} does not exist';
   // Використовуємо оператор "in" для перевірки наявності властивості
   // Запишимо умову якщо властивість існує повертає текст Property ${property} exists,
   // інашке повертаємо Property ${property} does not exist.
